@@ -1,0 +1,15 @@
+import styles from "./{{pascalCase name}}.module.scss";
+
+interface {{pascalCase name}}Props {
+  className?: string;
+}
+
+export function {{pascalCase name}}({ className }: {{pascalCase name}}Props) {
+  const rootClassName = [styles.{{camelCase name}}, className].filter(Boolean).join(" ");
+
+  return (
+    <div className={rootClassName}>
+      {/* {{pascalCase name}} component */}
+    </div>
+  );
+}

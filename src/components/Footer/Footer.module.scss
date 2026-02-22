@@ -1,0 +1,31 @@
+.footer {
+  margin-top: 34px;
+  background: linear-gradient(90deg, rgba(255, 77, 216, 0.75), rgba(255, 106, 0, 0.85));
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #111;
+  font-weight: 700;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.55);
+}
+
+.text {
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
