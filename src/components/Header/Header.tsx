@@ -1,30 +1,31 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 
 type Props = {
-  onContactClick: () => void;
+  onContactClick?: () => void;
 };
 
 export function Header({ onContactClick }: Props) {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <div className={styles.brand}>
+        <Link href={`/`} className={styles.brand}>
           <Image
             loading="eager"
-            src={"/Logo.png"}
+            src={"/logo.png"}
             alt="Логотип"
             width={70}
             height={84}
             className={styles.img}
           />{" "}
-        </div>
+        </Link>
 
-        <button className={styles.cta} onClick={onContactClick}>
-          Связаться с нами
-        </button>
+        <div className={styles.cta} onClick={onContactClick}>
+          <span className="t-link">Связаться с нами</span>
+        </div>
       </div>
     </header>
   );

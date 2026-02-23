@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { getAllNews, getNewsBySlug, formatRuDate } from "@/lib/news";
 import styles from "./page.module.scss";
 import ContactButtonClient from "./ui.client";
+import { Header } from "@/components/Header";
 
 export const revalidate = 60; // ISR: пересборка раз в 60 сек
 
@@ -24,20 +25,7 @@ export default async function NewsDetailsPage({
 
   return (
     <div className={styles.page}>
-      <div className={styles.header}>
-        <div className={styles.headerInner}>
-          <Image
-            loading="eager"
-            src={"/Logo.png"}
-            alt="Логотип"
-            width={70}
-            height={84}
-            className={styles.img}
-          />{" "}
-          <ContactButtonClient />
-        </div>
-      </div>
-
+      <Header />
       <main className={styles.main}>
         <div className={styles.card}>
           <div className={styles.left}>
@@ -48,19 +36,24 @@ export default async function NewsDetailsPage({
                 fill
                 className={styles.img}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-
               />
             </div>
           </div>
 
           <div className={styles.right}>
-            <h1 className={styles.title}>{item.title}</h1>
-            <div className={styles.date}>{formatRuDate(item.date)}</div>
-
+            <div className={styles.info}>
+              <span className="t-h1">{item.title}</span>
+              <span className={`t-text ${styles.date}`}>
+                {formatRuDate(item.date)}
+              </span>
+            </div>
             <div className={styles.content}>
-              {item.content.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+              <span className="t-h3">{item.contentHeader}</span>
+              <div>
+                {item.content.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -7,7 +7,8 @@ export type NewsItem = {
   title: string;
   date: string;       // ISO
   excerpt: string;
-  image: string;      // /public...
+  image: string;  
+  contentHeader: string;
   content: string[];
 };
 

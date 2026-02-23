@@ -21,8 +21,8 @@ export function NewsCard({ item }: { item: NewsItem }) {
       <div className={styles.body}>
         <div className={styles.title}>{item.title}</div>
         <div className={styles.excerpt}>{item.excerpt}</div>
-        <div className={styles.date}>{formatRuDate(item.date)}</div>
       </div>
+      <div className={styles.date}>{formatRuDate(item.date)}</div>
     </Link>
   );
 }
