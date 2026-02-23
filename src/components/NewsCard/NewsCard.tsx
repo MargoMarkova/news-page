@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./NewsCard.module.scss";
-import type { NewsItem } from "@/lib/news";
 import { formatRuDate } from "@/lib/news";
+import { NewsItem } from "@/api/api";
 
 export function NewsCard({ item }: { item: NewsItem }) {
   return (
@@ -20,7 +20,7 @@ export function NewsCard({ item }: { item: NewsItem }) {
 
       <div className={styles.body}>
         <div className={styles.title}>{item.title}</div>
-        <div className={styles.excerpt}>{item.excerpt}</div>
+        <div className={styles.summary}>{item.summary}</div>
       </div>
       <div className={styles.date}>{formatRuDate(item.date)}</div>
     </Link>

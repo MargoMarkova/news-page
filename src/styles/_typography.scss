@@ -1,5 +1,4 @@
 @mixin type($size, $weight, $lh, $transform: none) {
-  //   font-family: $font-base;
   font-size: $size;
   font-weight: $weight;
   line-height: $lh;
@@ -7,7 +6,6 @@
   text-transform: $transform;
 }
 
-// Headings (110%, Uppercase, 600)
 .t-h1 {
   @include type(40px, 600, 110%, uppercase);
 }
@@ -21,18 +19,16 @@
   @include type(16px, 600, 110%, uppercase);
 }
 
-// Text styles (130%)
 .t-text {
   @include type(21px, 400, 130%);
-} // Text 16 Regular
+} 
 .t-link {
   @include type(16px, 500, 130%);
-} // Link 16 Medium
+}
 .t-caption {
   @include type(12px, 500, 130%, uppercase);
-} // Caption 12 Medium Uppercase
+}
 
-// Paragraph spacing from Figma (10px)
 .p-space-10 > * + * {
   margin-top: 10px;
-} // удобный контейнер для текста
+}

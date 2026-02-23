@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import styles from "./NewsList.module.scss";
-import type { NewsItem } from "@/lib/news";
+import { NewsItem } from "@/api/api";
 import { NewsCard } from "@/components/NewsCard/NewsCard";
+import { api } from "@/api";
 
 export function NewsList() {
   const [items, setItems] = useState<NewsItem[]>([]);
@@ -15,16 +16,11 @@ export function NewsList() {
     async function load() {
       setLoading(true);
 
-      // имитация API задержки
-      await new Promise((r) => setTimeout(r, 500));
+      const data = await api().getAllNews();
+      if (!alive) return;
 
-      const res = await fetch("/news.json", { cache: "no-store" });
-      const data = (await res.json()) as NewsItem[];
-
-      if (alive) {
-        setItems(data);
-        setLoading(false);
-      }
+      setItems(data);
+      setLoading(false);
     }
 
     load();
