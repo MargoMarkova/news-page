@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer/Footer";
 import { formatRuDate } from "@/lib/news";
 import styles from "./page.module.scss";

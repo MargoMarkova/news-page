@@ -1,6 +1,6 @@
 import "./globals.scss";
 import type { Metadata } from "next";
-import { inter } from "@/styles/fonts"
+import { inter } from "@/styles/fonts";
 
 export const metadata: Metadata = {
   title: "Новости",
@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" >
+    <html lang="ru">
       <body className={inter.className}>{children}</body>
     </html>
   );

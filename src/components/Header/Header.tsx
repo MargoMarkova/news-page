@@ -3,12 +3,9 @@
 import Link from "next/link";
 import styles from "./Header.module.scss";
 import Image from "next/image";
+import { ContactButton } from "../ContactButton";
 
-type Props = {
-  onContactClick?: () => void;
-};
-
-export function Header({ onContactClick }: Props) {
+export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -23,9 +20,7 @@ export function Header({ onContactClick }: Props) {
           />{" "}
         </Link>
 
-        <div className={styles.cta} onClick={onContactClick}>
-          <span className="t-link">Связаться с нами</span>
-        </div>
+        <ContactButton />
       </div>
     </header>
   );
