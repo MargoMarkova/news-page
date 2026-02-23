@@ -1,14 +1,14 @@
 .cta {
-    padding: 10px 16px;
-    border-radius: 999px;
-    background: transparent;
-    color: var(--text);
-    border: 1px solid rgba(255, 106, 0, 0.55);
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-  
-  .cta:hover {
-    border-color: rgba(255, 77, 216, 0.7);
-    box-shadow: 0 0 0 4px rgba(255, 77, 216, 0.12);
-  }
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 106, 0, 0.55);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.cta:hover {
+  border-color: rgba(255, 77, 216, 0.7);
+  box-shadow: 0 0 0 4px rgba(255, 77, 216, 0.12);
+}

@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   display: grid;
   place-items: center;
   z-index: 100;
@@ -14,7 +14,7 @@
   color: #111;
   border-radius: 14px;
   padding: 18px 18px 20px;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.35);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
 }
 
 .top {
@@ -38,14 +38,20 @@
   line-height: 1;
 }
 
-.form { display: grid; gap: 10px; }
+.form {
+  display: grid;
+  gap: 10px;
+}
 
-.field { display: grid; gap: 6px; }
+.field {
+  display: grid;
+  gap: 6px;
+}
 
 .input {
   height: 42px;
   border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.35);
+  border: 1px solid rgba(0, 0, 0, 0.35);
   padding: 0 12px;
   outline: none;
 }
@@ -64,7 +70,7 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 12px;
-  color: rgba(0,0,0,0.65);
+  color: rgba(0, 0, 0, 0.65);
   margin-top: 2px;
 }
 
@@ -90,7 +96,10 @@
 
 /* mobile pop-up на весь экран как в макете */
 @media (max-width: 520px) {
-  .overlay { padding: 0; place-items: stretch; }
+  .overlay {
+    padding: 0;
+    place-items: stretch;
+  }
   .modal {
     border-radius: 0;
     width: 100%;

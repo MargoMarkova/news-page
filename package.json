@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "prettier": "prettier . --check .",
+    "prettier:fix": "prettier . --write .",
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix .",
+    "lint": "pnpm run prettier && pnpm run eslint",
     "plop": "plop"
   },
   "dependencies": {
@@ -24,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "plop": "^4.0.5",
+    "prettier": "^3.8.1",
     "sass": "^1.97.3",
     "typescript": "^5"
   }

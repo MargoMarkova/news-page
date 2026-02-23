@@ -72,7 +72,11 @@ export function ContactModal({ open, onClose }: Props) {
       <div className={styles.modal} onMouseDown={(e) => e.stopPropagation()}>
         <div className={styles.top}>
           <div className={styles.title}>СВЯЗАТЬСЯ С НАМИ</div>
-          <button className={styles.close} onClick={onClose} aria-label="Закрыть">
+          <button
+            className={styles.close}
+            onClick={onClose}
+            aria-label="Закрыть"
+          >
             ✕
           </button>
         </div>
@@ -116,7 +120,11 @@ export function ContactModal({ open, onClose }: Props) {
           </label>
 
           <label className={styles.agree}>
-            <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
+            <input
+              type="checkbox"
+              checked={agree}
+              onChange={(e) => setAgree(e.target.checked)}
+            />
             <span>Я согласен(-а) на обработку персональных данных</span>
           </label>
           {errors.agree && <div className={styles.err}>{errors.agree}</div>}
