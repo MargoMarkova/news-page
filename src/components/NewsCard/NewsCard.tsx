@@ -19,8 +19,8 @@ export function NewsCard({ item }: { item: NewsItem }) {
       </div>
 
       <div className={styles.body}>
-        <div className={styles.title}>{item.title}</div>
-        <div className={styles.summary}>{item.summary}</div>
+        <div>{item.title}</div>
+        <div className={`t-text ${styles.summary}`}>{item.summary}</div>
       </div>
       <div className={styles.date}>{formatRuDate(item.date)}</div>
     </Link>

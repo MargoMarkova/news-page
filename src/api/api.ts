@@ -4,12 +4,12 @@ export interface IAPI {
 }
 
 export type NewsItem = {
-	id: number;
-	slug: string;
-	title: string;
-	date: string; // ISO
-	summary: string;
-	image: string;
-	contentHeader: string;
-	content: string[];
-  };
+  id: number;
+  slug: string;
+  title: string;
+  date: string; // ISO
+  summary: string;
+  image: string;
+  contentHeader: string;
+  content: string[];
+};

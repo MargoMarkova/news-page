@@ -1,15 +1,16 @@
+"use client";
 import { useState } from "react";
 import { ContactModal } from "../ContactModal";
-import styles from "./ContactButton.module.scss";
 
 export function ContactButton() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <div className={styles.button} onClick={() => setOpen(true)}>
+      <button className="highlightedButton" onClick={() => setOpen(true)}>
+        <span className="t-link absolute">Связаться с нами</span>
         <span className="t-link">Связаться с нами</span>
-      </div>
+      </button>
       <ContactModal open={open} onClose={() => setOpen(false)} />
     </>
   );

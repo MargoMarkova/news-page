@@ -6,9 +6,6 @@
 
 .h1 {
   margin: 59px 0 40px;
-  font-size: 40px;
-  letter-spacing: 0.8px;
-  font-weight: 600;
 }
 
 .grid {
@@ -38,7 +35,6 @@
 
 .skeleton {
   height: 260px;
-  // border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.03);
   animation: pulse 1.2s ease-in-out infinite;

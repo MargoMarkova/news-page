@@ -31,7 +31,7 @@ export function NewsList() {
 
   return (
     <section className={styles.section}>
-      <h1 className={styles.h1}>НОВОСТИ</h1>
+      <h1 className={`t-h1 ${styles.h1}`}>НОВОСТИ</h1>
 
       {loading ? (
         <div className={styles.skeletonGrid}>

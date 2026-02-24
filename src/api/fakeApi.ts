@@ -1,26 +1,33 @@
 import { IAPI, NewsItem } from "./api";
+import news from "../../public/news.json";
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export class FakeAPI implements IAPI {
-  private data: NewsItem[] = [];
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL!;
 
-  constructor() {
-    fetch("/news.json")
-      .then((response) => response.json())
-      .then((json) => (this.data = json));
+export class FakeAPI implements IAPI {
+  private buildUrl(endpoint: string): string {
+    return `${BACKEND_URL}/${endpoint}`;
   }
 
+  //   async fetchAllNews(): Promise<NewsItem[]> {
+  //     await delay(100);
+  //     const res = await fetch(this.buildUrl("news.json"));
+  // 	console.log(this.buildUrl("news.json") )
+  //     if (!res.ok) throw new Error("Failed to fetch news");
+
+  //     return res.json();
+  //   }
+
   async getAllNews(): Promise<NewsItem[]> {
-    await delay(100);
-    return this.data;
+    return news as NewsItem[];
   }
 
   async getNews(slug: string): Promise<NewsItem> {
-    await delay(100);
-    const item = this.data.find((newsItem) => newsItem.slug === slug);
+    const allNews = news as NewsItem[];
+    const item = allNews.find((newsItem) => newsItem.slug === slug);
     if (!item) throw new Error(`Do not have any news with slug=${slug}`);
     return item;
   }

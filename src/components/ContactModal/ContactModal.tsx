@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import InputMask from "react-input-mask";
 import styles from "./ContactModal.module.scss";
+import { useMask } from "@react-input/mask";
 
 type Props = {
   open: boolean;
@@ -20,6 +20,11 @@ export function ContactModal({ open, onClose }: Props) {
   const [errors, setErrors] = useState<Errors>({});
 
   const emailRe = useMemo(() => /^[^\s@]+@[^\s@]+\.[^\s@]+$/, []);
+
+  const phoneRef = useMask({
+    mask: "+7 (___) ___-__-__",
+    replacement: { _: /\d/ },
+  });
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -62,8 +67,6 @@ export function ContactModal({ open, onClose }: Props) {
       email: email.trim(),
       agree,
     });
-
-    // по ТЗ: просто вывести в консоль и закрыть
     onClose();
   }
 
@@ -71,7 +74,7 @@ export function ContactModal({ open, onClose }: Props) {
     <div className={styles.overlay} onMouseDown={onClose}>
       <div className={styles.modal} onMouseDown={(e) => e.stopPropagation()}>
         <div className={styles.top}>
-          <div className={styles.title}>СВЯЗАТЬСЯ С НАМИ</div>
+          <div className="t-h2">СВЯЗАТЬСЯ С НАМИ</div>
           <button
             className={styles.close}
             onClick={onClose}
@@ -82,55 +85,65 @@ export function ContactModal({ open, onClose }: Props) {
         </div>
 
         <form className={styles.form} onSubmit={submit}>
-          <label className={styles.field}>
-            <input
-              className={`${styles.input} ${errors.name ? styles.inputError : ""}`}
-              placeholder="Имя"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            {errors.name && <div className={styles.err}>{errors.name}</div>}
-          </label>
-
-          <label className={styles.field}>
-            {/* <InputMask
-              mask="+7 (999) 999-99-99"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            >
-              {(inputProps) => (
+          <div className={styles.formContent}>
+            <div className={styles.labels}>
+              <label className={styles.field}>
                 <input
-                  {...inputProps}
-                  className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
-                  placeholder="Телефон"
+                  className={`t-text ${styles.input} ${errors.name ? styles.inputError : ""}`}
+                  placeholder="Имя"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
-              )}
-            </InputMask> */}
-            {errors.phone && <div className={styles.err}>{errors.phone}</div>}
-          </label>
+                {errors.name && <div className={styles.err}>{errors.name}</div>}
+              </label>
+              <label className={styles.field}>
+                <input
+                  ref={phoneRef}
+                  className={`t-text ${styles.input} ${errors.phone ? styles.inputError : ""}`}
+                  placeholder="Телефон"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                {errors.phone && (
+                  <div className={styles.err}>{errors.phone}</div>
+                )}
+              </label>
 
-          <label className={styles.field}>
-            <input
-              className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {errors.email && <div className={styles.err}>{errors.email}</div>}
-          </label>
+              <label className={styles.field}>
+                <input
+                  className={`t-text ${styles.input} ${errors.email ? styles.inputError : ""}`}
+                  placeholder="E-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {errors.email && (
+                  <div className={styles.err}>{errors.email}</div>
+                )}
+              </label>
+            </div>
+            <div>
+              <label className={styles.agree}>
+                {agree}
+                <input
+                  type="checkbox"
+                  checked={agree}
+                  onChange={(e) => setAgree(e.target.checked)}
+                />
+                <span className={styles.checkboxWrap}></span>
+                <span className={`t-caption ${styles.agreeMessage}`}>
+                  Я согласен(-а) на обработку персональных данных
+                </span>
+              </label>
+              {errors.agree && <div className={styles.err}>{errors.agree}</div>}
+            </div>
+          </div>
 
-          <label className={styles.agree}>
-            <input
-              type="checkbox"
-              checked={agree}
-              onChange={(e) => setAgree(e.target.checked)}
-            />
-            <span>Я согласен(-а) на обработку персональных данных</span>
-          </label>
-          {errors.agree && <div className={styles.err}>{errors.agree}</div>}
-
-          <button className={styles.submit} type="submit">
-            Отправить
+          <button
+            type="submit"
+            className={`highlightedButton ${styles.submit}`}
+          >
+            <span className="t-link absolute">Отправить</span>
+            <span className="t-link">Отправить</span>
           </button>
         </form>
       </div>

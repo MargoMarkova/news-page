@@ -20,8 +20,8 @@
 }
 
 .t-text {
-  @include type(21px, 400, 130%);
-} 
+  @include type(16px, 400, 130%);
+}
 .t-link {
   @include type(16px, 500, 130%);
 }
