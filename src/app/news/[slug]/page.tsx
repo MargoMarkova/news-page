@@ -8,7 +8,7 @@ import { api } from "@/api";
 import { NewsItem } from "@/api/api";
 import { Usable, useEffect, useState } from "react";
 import React from "react";
-import { notFound } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 // export const revalidate = 60;
 
@@ -24,6 +24,7 @@ export default function NewsDetailsPage({
 }) {
   const [item, setItem] = useState<NewsItem | undefined>();
   const { slug } = React.use(params);
+  const router = useRouter();
 
   useEffect(() => {
     let alive = true;
@@ -34,8 +35,7 @@ export default function NewsDetailsPage({
 
         if (alive) setItem(data);
       } catch {
-        // console.log("problem");
-        notFound();
+        router.replace("/not-found");
       }
     }
 
