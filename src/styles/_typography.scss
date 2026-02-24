@@ -29,6 +29,26 @@
   @include type(12px, 500, 130%, uppercase);
 }
 
-.p-space-10 > * + * {
-  margin-top: 10px;
+$bp-desktop: 1440px;
+
+.t-news-list-header,
+.t-news-title {
+  // h2
+  @include type(24px, 600, 110%, uppercase);
+
+  // h1
+  @media (min-width: $bp-desktop) {
+    @include type(40px, 600, 110%, uppercase);
+  }
+}
+
+.t-news-card-title,
+.t-contact-header {
+  // h3
+  @include type(20px, 600, 110%, uppercase);
+
+  // h2
+  @media (min-width: $bp-desktop) {
+    @include type(24px, 600, 110%, uppercase);
+  }
 }

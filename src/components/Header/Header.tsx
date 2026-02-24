@@ -8,14 +8,16 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href={`/`} className={styles.brand}>
-          <Image
-            loading="eager"
-            src={"/logo.png"}
-            alt="Логотип"
-            width={70}
-            height={84}
-            className={styles.img}
-          />{" "}
+          <div className={styles.logoWrap}>
+            <Image
+              src="/logo.png"
+              alt="Логотип"
+              fill
+              sizes="(max-width: 768px) 43.65px, 70px"
+              className={styles.img}
+              priority
+            />
+          </div>
         </Link>
 
         <ContactButton />

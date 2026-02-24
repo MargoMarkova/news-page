@@ -8,11 +8,12 @@ import { api } from "@/api";
 import { NewsItem } from "@/api/api";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
-export async function generateStaticParams() {
-  const news = await api().getAllNews();
-  return news.map((n) => ({ slug: n.slug }));
-}
+// export const revalidate = 60;
+
+// export async function generateStaticParams() {
+//   const news = await api().getAllNews();
+//   return news.map((n) => ({ slug: n.slug }));
+// }
 
 export default async function NewsDetailsPage({
   params,
@@ -43,7 +44,7 @@ export default async function NewsDetailsPage({
                 </div>
                 <div className={styles.right}>
                   <div className={styles.info}>
-                    <span className="t-h1">{item.title}</span>
+                    <span className="t-news-title">{item.title}</span>
                     <span className={`t-text ${styles.date}`}>
                       {formatRuDate(item.date)}
                     </span>

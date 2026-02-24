@@ -74,7 +74,7 @@ export function ContactModal({ open, onClose }: Props) {
     <div className={styles.overlay} onMouseDown={onClose}>
       <div className={styles.modal} onMouseDown={(e) => e.stopPropagation()}>
         <div className={styles.top}>
-          <div className="t-h2">СВЯЗАТЬСЯ С НАМИ</div>
+          <div className="t-contact-header">СВЯЗАТЬСЯ С НАМИ</div>
           <button
             className={styles.close}
             onClick={onClose}

@@ -2,7 +2,8 @@
   height: 248px;
   margin-top: 80px;
   background: linear-gradient(180deg, var(--accent1), var(--accent2));
-  padding: 0 40px;
+  padding: 95px 40px;
+  // width: 100vw;
 }
 
 .inner {
@@ -18,4 +19,32 @@
 
 .img {
   color: white;
+}
+
+@media (max-width: 1440px) {
+  .inner {
+    flex-direction: column;
+    width: 191px;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    height: 240px;
+  }
+
+  .footer {
+    height: 431px;
+  }
+}
+
+.logoWrap {
+  position: relative;
+  width: 103px;
+  height: 124px;
+}
+
+@media (max-width: 768px) {
+  .logoWrap {
+    width: 120px;
+    height: 144px;
+  }
 }

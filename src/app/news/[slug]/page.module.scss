@@ -1,5 +1,7 @@
 .page {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -22,8 +24,9 @@
 
 .main {
   max-width: 1360px;
-  margin: 78px auto 0;
-  padding: 22px 20px 10px;
+  // margin: 78px auto 0;
+  padding: 77px 40px 10px;
+  flex: 1;
 }
 
 .card {
@@ -53,21 +56,6 @@
   flex-direction: column;
   gap: 20px;
 }
-@media (max-width: 860px) {
-  .card {
-    grid-template-columns: 1fr;
-  }
-  .imgWrap {
-    height: 220px;
-  }
-}
-
-@media (max-width: 360px) {
-  .title {
-    font-size: 18px;
-  }
-}
-
 .right {
   display: flex;
   flex-direction: column;
@@ -82,4 +70,31 @@
 
 .date {
   opacity: 50%;
+}
+
+@media (max-width: 860px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .imgWrap {
+    height: 220px;
+  }
+}
+
+@media (max-width: 860px) {
+  .title {
+    font-size: 18px;
+  }
+  .main {
+    padding: 40px 12px 0px 10px;
+  }
+  .card {
+    gap: 20px;
+  }
+  .info {
+    gap: 10px;
+  }
+  .content {
+    width: 100%;
+  }
 }

@@ -8,8 +8,6 @@
 
 .highlightedButton {
   position: relative;
-  // width: 179px;
-  // height: 45px;
   padding: 12px 20px;
   display: flex;
   justify-content: center;
@@ -47,11 +45,4 @@
 
 .highlightedButton:hover {
   background: linear-gradient(180deg, var(--accent1), var(--accent2));
-}
-
-@media (max-width: 360px) {
-  .highlightedButton {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
 }
