@@ -1,6 +1,3 @@
-# docker build -t markovvn1/500na700 .
-# docker run -it --rm -p 80:80 markovvn1/website-cv
-
 FROM node:20 AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
