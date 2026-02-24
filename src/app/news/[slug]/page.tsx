@@ -8,6 +8,7 @@ import { api } from "@/api";
 import { NewsItem } from "@/api/api";
 import { Usable, useEffect, useState } from "react";
 import React from "react";
+import { notFound } from "next/navigation";
 
 // export const revalidate = 60;
 
@@ -22,16 +23,20 @@ export default function NewsDetailsPage({
   params: Usable<{ slug: string }>;
 }) {
   const [item, setItem] = useState<NewsItem | undefined>();
-  const { slug } = React.use(params)
+  const { slug } = React.use(params);
 
   useEffect(() => {
     let alive = true;
 
     async function load() {
-      
-      const data = await api().getNews(slug);
+      try {
+        const data = await api().getNews(slug);
 
-      if (alive) setItem(data);
+        if (alive) setItem(data);
+      } catch {
+        // console.log("problem");
+        notFound();
+      }
     }
 
     load();
@@ -43,25 +48,25 @@ export default function NewsDetailsPage({
   return (
     <div className={styles.page}>
       <Header />
-
       <main className={styles.main}>
         <article className={styles.article}>
-          {item && (
-            <>
-              <div className={styles.media}>
-                <div className={styles.mediaFrame}>
-                  <Image
-                    src={item.image}
-                    alt={item!.title}
-                    fill
-                    className={styles.mediaImage}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="eager"
-                  />
-                </div>
-              </div>
-
-              <div className={styles.body}>
+          <div className={styles.media}>
+            <div className={styles.mediaFrame}>
+              {item && (
+                <Image
+                  src={item.image}
+                  alt={item!.title}
+                  fill
+                  className={styles.mediaImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  loading="eager"
+                />
+              )}
+            </div>
+          </div>
+          <div className={styles.body}>
+            {item && (
+              <>
                 <header className={styles.meta}>
                   <h1 className={`${styles.title} t-news-title`}>
                     {item!.title}
@@ -74,7 +79,6 @@ export default function NewsDetailsPage({
                     {formatRuDate(item!.date)}
                   </time>
                 </header>
-
                 <section className={styles.content}>
                   <h2 className={`${styles.contentHeader} t-h3`}>
                     {item!.contentHeader}
@@ -88,9 +92,9 @@ export default function NewsDetailsPage({
                     ))}
                   </div>
                 </section>
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </article>
       </main>
 

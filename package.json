@@ -17,7 +17,9 @@
     "@react-input/mask": "^2.0.4",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sass": "^1.97.3",
+    "typescript": "^5"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -26,8 +28,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "plop": "^4.0.5",
-    "prettier": "^3.8.1",
-    "sass": "^1.97.3",
-    "typescript": "^5"
+    "prettier": "^3.8.1"
   }
 }
