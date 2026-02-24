@@ -22,7 +22,7 @@
   background: inherit;
   color: #111;
   border-radius: 20px;
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background-color: white;
 }
 
@@ -58,7 +58,7 @@
   width: 440px;
   height: 51px;
   border-radius: 10px;
-  border: 1px solid #000;
+  border: 1px solid var(--black);
   padding: 0 12px;
   outline: none;
 }
@@ -72,7 +72,7 @@
 
 .err {
   font-size: 12px;
-  color: #b00020;
+  color: rgb(176, 0, 32);
 }
 
 .submit {
@@ -83,21 +83,6 @@
 
   &::after {
     background: white !important;
-  }
-}
-
-/* mobile pop-up на весь экран как в макете */
-@media (max-width: 520px) {
-  .overlay {
-    padding: 0;
-    place-items: stretch;
-  }
-  .modal {
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-shadow: none;
   }
 }
 
@@ -117,14 +102,8 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-
   position: relative;
-
-  background: linear-gradient(
-    180deg,
-    rgba(251, 134, 39, 1) 0%,
-    rgba(245, 190, 246, 1) 100%
-  );
+  background: linear-gradient(180deg, var(--accent1), var(--accent2));
   padding: 1px;
 }
 
@@ -184,6 +163,6 @@
   }
 
   .close {
-    font-size: 30px;
+    font-size: 32px;
   }
 }

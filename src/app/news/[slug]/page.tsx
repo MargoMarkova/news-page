@@ -14,6 +14,7 @@ import { notFound } from "next/navigation";
 //   const news = await api().getAllNews();
 //   return news.map((n) => ({ slug: n.slug }));
 // }
+
 export default async function NewsDetailsPage({
   params,
 }: {
@@ -46,7 +47,9 @@ export default async function NewsDetailsPage({
 
                 <div className={styles.body}>
                   <header className={styles.meta}>
-                    <h1 className="t-news-title">{item.title}</h1>
+                    <h1 className={`${styles.title} t-news-title`}>
+                      {item.title}
+                    </h1>
 
                     <time
                       className={`${styles.date} t-text`}

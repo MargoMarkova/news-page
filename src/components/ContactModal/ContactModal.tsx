@@ -34,14 +34,6 @@ export function ContactModal({ open, onClose }: Props) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, onClose]);
 
-  useEffect(() => {
-    // запрет прокрутки под модалкой
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
   if (!open) return null;
 
   function validate(): boolean {
@@ -68,6 +60,10 @@ export function ContactModal({ open, onClose }: Props) {
       agree,
     });
     onClose();
+    setName("");
+    setPhone("");
+    setEmail("");
+    setAgree(false);
   }
 
   return (

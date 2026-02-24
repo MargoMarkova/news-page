@@ -1,0 +1,41 @@
+.highlightedButton {
+  position: relative;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 40px;
+  background: var(--black) !important;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(180deg, var(--accent1), var(--accent2));
+    border-radius: 40px;
+    z-index: 100;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background: inherit;
+    border-radius: 40px;
+    z-index: 200;
+    transition: 0.2s ease;
+  }
+}
+.highlightedButton .absolute {
+  margin: auto;
+  position: absolute;
+  z-index: 500;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.highlightedButton:hover::after {
+  background: linear-gradient(180deg, var(--accent1), var(--accent2));
+}

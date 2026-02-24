@@ -21,6 +21,10 @@
   min-width: 0;
 }
 
+.title {
+  margin: 0;
+}
+
 .mediaFrame {
   position: relative;
   width: 100%;
@@ -58,7 +62,8 @@
   width: 440px;
 }
 
-.contentHeader, .paragraph {
+.contentHeader,
+.paragraph {
   margin: 0;
 }
 
@@ -86,9 +91,6 @@
   .body {
     gap: 24px;
     padding: 0px 12px 0px 10px;
-  }
-  .t-news-title {
-    margin: 0;
   }
 
   .content {

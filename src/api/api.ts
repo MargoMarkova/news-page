@@ -7,7 +7,7 @@ export type NewsItem = {
   id: number;
   slug: string;
   title: string;
-  date: string; // ISO
+  date: string;
   summary: string;
   image: string;
   contentHeader: string;

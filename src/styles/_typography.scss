@@ -43,7 +43,8 @@ $bp-desktop: 1440px;
 }
 
 .t-news-card-title,
-.t-contact-header, .t-footer {
+.t-contact-header,
+.t-footer {
   // h3
   @include type(20px, 600, 110%, uppercase);
 
@@ -51,4 +52,8 @@ $bp-desktop: 1440px;
   @media (min-width: $bp-desktop) {
     @include type(24px, 600, 110%, uppercase);
   }
+}
+
+.t-link:hover {
+  opacity: 50%;
 }
