@@ -1,3 +1,6 @@
+"use client";
+
+/* eslint-disable @next/next/no-async-client-component */
 /* eslint-disable react-hooks/error-boundaries */
 import Image from "next/image";
 import { Footer } from "@/components/Footer";
