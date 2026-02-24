@@ -15,7 +15,7 @@ export function Footer() {
             className={styles.img}
           />
         </div>
-        <div className="t-h2">КРЕАТИВНОЕ АГЕНТСТВО 500NA700</div>
+        <div className="t-footer">КРЕАТИВНОЕ АГЕНТСТВО 500NA700</div>
         <div />
       </div>
     </footer>

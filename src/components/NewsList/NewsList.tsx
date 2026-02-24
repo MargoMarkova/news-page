@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./NewsList.module.scss";
 import { NewsItem } from "@/api/api";
-import { NewsCard } from "@/components/NewsCard/NewsCard";
+import { NewsCard } from "@/components/NewsCard";
 import { api } from "@/api";
 
 export function NewsList() {

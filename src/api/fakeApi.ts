@@ -14,9 +14,7 @@ export class FakeAPI implements IAPI {
   async getAllNews(): Promise<NewsItem[]> {
     await delay(100);
     const res = await fetch(this.buildUrl("news.json"));
-    console.log(this.buildUrl("news.json"));
     if (!res.ok) throw new Error("Failed to fetch news");
-
     return res.json();
   }
 

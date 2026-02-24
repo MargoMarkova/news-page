@@ -4,96 +4,93 @@
   flex-direction: column;
 }
 
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(10, 11, 16, 0.75);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-
-.headerInner {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .main {
-  max-width: 1360px;
-  // margin: 78px auto 0;
-  padding: 77px 40px 10px;
   flex: 1;
+  max-width: 1360px;
+  padding: 77px 40px 24px;
 }
 
-.card {
+.article {
   display: grid;
   grid-template-columns: 440px 1fr;
-  gap: 24px;
+  gap: 20px;
   align-items: start;
 }
 
-.imgWrap {
+.media {
+  min-width: 0;
+}
+
+.mediaFrame {
   position: relative;
   width: 100%;
   height: 320px;
-  //   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
 }
 
-.img {
+.mediaImage {
   object-fit: cover;
 }
 
-.content {
-  width: 440px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.right {
+.body {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.info {
+.meta {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .date {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
-@media (max-width: 860px) {
-  .card {
-    grid-template-columns: 1fr;
-  }
-  .imgWrap {
-    height: 220px;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 440px;
 }
 
-@media (max-width: 860px) {
-  .title {
-    font-size: 18px;
-  }
+.contentHeader, .paragraph {
+  margin: 0;
+}
+
+.paragraph:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+@media (max-width: 1024px) {
   .main {
-    padding: 40px 12px 0px 10px;
+    padding: 40px 0px 0px 0px;
   }
-  .card {
+
+  .article {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
-  .info {
+
+  .mediaFrame {
+    height: 220px;
+  }
+
+  .meta {
     gap: 10px;
   }
+
+  .body {
+    gap: 24px;
+    padding: 0px 12px 0px 10px;
+  }
+  .t-news-title {
+    margin: 0;
+  }
+
   .content {
     width: 100%;
   }

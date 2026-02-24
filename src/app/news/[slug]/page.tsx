@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/error-boundaries */
 import Image from "next/image";
-import { Footer } from "@/components/Footer/Footer";
+import { Footer } from "@/components/Footer";
 import { formatRuDate } from "@/lib/news";
 import styles from "./page.module.scss";
 import { Header } from "@/components/Header";
@@ -14,7 +14,6 @@ import { notFound } from "next/navigation";
 //   const news = await api().getAllNews();
 //   return news.map((n) => ({ slug: n.slug }));
 // }
-
 export default async function NewsDetailsPage({
   params,
 }: {
@@ -24,43 +23,56 @@ export default async function NewsDetailsPage({
 
   try {
     const item: NewsItem = await api().getNews(slug);
+
     return (
       <div className={styles.page}>
         <Header />
+
         <main className={styles.main}>
-          <div className={styles.card}>
+          <article className={styles.article}>
             {item && (
               <>
-                <div className={styles.left}>
-                  <div className={styles.imgWrap}>
+                <div className={styles.media}>
+                  <div className={styles.mediaFrame}>
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className={styles.img}
+                      className={styles.mediaImage}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 </div>
-                <div className={styles.right}>
-                  <div className={styles.info}>
-                    <span className="t-news-title">{item.title}</span>
-                    <span className={`t-text ${styles.date}`}>
+
+                <div className={styles.body}>
+                  <header className={styles.meta}>
+                    <h1 className="t-news-title">{item.title}</h1>
+
+                    <time
+                      className={`${styles.date} t-text`}
+                      dateTime={item.date}
+                    >
                       {formatRuDate(item.date)}
-                    </span>
-                  </div>
-                  <div className={styles.content}>
-                    <span className="t-h3">{item.contentHeader}</span>
-                    <div>
+                    </time>
+                  </header>
+
+                  <section className={styles.content}>
+                    <h2 className={`${styles.contentHeader} t-h3`}>
+                      {item.contentHeader}
+                    </h2>
+
+                    <div className={`${styles.paragraphs} t-tex`}>
                       {item.content.map((p, i) => (
-                        <p key={i}>{p}</p>
+                        <p className={styles.paragraph} key={i}>
+                          {p}
+                        </p>
                       ))}
                     </div>
-                  </div>
+                  </section>
                 </div>
               </>
             )}
-          </div>
+          </article>
         </main>
 
         <Footer />

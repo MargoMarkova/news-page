@@ -43,7 +43,7 @@ $bp-desktop: 1440px;
 }
 
 .t-news-card-title,
-.t-contact-header {
+.t-contact-header, .t-footer {
   // h3
   @include type(20px, 600, 110%, uppercase);
 
